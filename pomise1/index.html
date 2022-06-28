@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="img_url"
+    src="https://c.tenor.com/K2UGDd4acJUAAAAM/load-loading.gif" alt="">
+</body>
+</html>
+
+<script>
+    
+
+    function bankServer(){
+      
+        return true //false;
+    }
+let rel = new Promise(function(res,rej){
+    
+    let pin = bankServer();
+    setTimeout(function(){
+        if(pin){
+       
+          res("Payment successfull!")
+    
+    }else{
+        rej("Try again leter");
+    }
+    },3000)
+    
+})
+// console.log(rel);
+let image = document.getElementById("img_url");
+rel.then(function(res){
+    console.log(res);
+    image.src = "https://c.tenor.com/xVfFIHxAzW4AAAAC/success.gif";
+
+})
+
+rel.catch(function(rej){
+    console.log(rej);
+image.src="https://c.tenor.com/flmQIupAKBkAAAAC/steven-he-failure.gif"
+})
+
+
+</script>
